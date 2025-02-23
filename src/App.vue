@@ -1,28 +1,28 @@
-<script setup>
-  import VLoader from '@/components/global/VLoader.vue';
-  import LanguageMenu from '@/components/LanguageMenu.vue';
+<script lang="ts" setup>
+import VLoader from '@/components/global/VLoader.vue'
+import LanguageMenu from '@/components/LanguageMenu.vue'
 
-  import { useUiStore } from '@/stores/useUiStore.js';
-  import { onMounted, watch } from 'vue';
-  import { useRoute } from 'vue-router';
+import { useUiStore } from '@/stores/useUiStore.js'
+import { onMounted, watch } from 'vue'
+import { useRoute } from 'vue-router'
 
-  const uiStore = useUiStore();
-  const route = useRoute();
+const uiStore = useUiStore()
+const route = useRoute()
 
-  onMounted(() => {
-    watch(
-      () => route.path,
-      async () => {
-        uiStore.startLoading();
+onMounted(() => {
+  watch(
+    () => route.path,
+    async () => {
+      uiStore.startLoading()
 
-        // Fake loading effect to show loader
-        await new Promise((resolve) => setTimeout(resolve, 500));
+      // Fake loading effect to show loader
+      await new Promise((resolve) => setTimeout(resolve, 500))
 
-        uiStore.stopLoading();
-      },
-      { immediate: true }
-    );
-  });
+      uiStore.stopLoading()
+    },
+    { immediate: true },
+  )
+})
 </script>
 
 <template>
@@ -51,20 +51,23 @@
   </div>
 </template>
 
-
 <style lang="scss" scoped>
-  .fade {
-    &-enter-active, &-leave-active {
-      transition: opacity 0.5s;
-    }
-
-    &-loader-enter-active, &-loader-leave-active {
-      transition: opacity 0.3s ease-in-out;
-    }
-
-    &-enter, &-leave-to,
-    &-loader-enter, &-loader-leave-to {
-      opacity: 0;
-    }
+.fade {
+  &-enter-active,
+  &-leave-active {
+    transition: opacity 0.5s;
   }
+
+  &-loader-enter-active,
+  &-loader-leave-active {
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  &-enter,
+  &-leave-to,
+  &-loader-enter,
+  &-loader-leave-to {
+    opacity: 0;
+  }
+}
 </style>

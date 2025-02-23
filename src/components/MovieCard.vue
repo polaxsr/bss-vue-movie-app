@@ -1,32 +1,23 @@
 <script setup lang="ts">
-  import { useI18n } from 'vue-i18n';
+import { useI18n } from 'vue-i18n'
 
-  const { locale } = useI18n();
+const { locale } = useI18n()
 
-  interface Movie {
-    id?: number;
-    title?: string;
-    vote_average?: number;
-    poster_path?: string;
-    isLoading?: boolean;
-  }
+interface Movie {
+  id?: number
+  title?: string
+  vote_average?: number
+  poster_path?: string
+  isLoading?: boolean
+}
 
-  defineProps<{ movie: Movie }>();
+defineProps<{ movie: Movie }>()
 </script>
 
 <template>
-  <router-link :to="`/${locale}/details/${movie.id}`"
-    class="
-      bg-gray-800
-      text-white
-      rounded-lg
-      overflow-hidden
-      cursor-pointer
-      transform
-      transition
-      duration-300
-      hover:scale-105
-    "
+  <router-link
+    :to="`/${locale}/details/${movie.id}`"
+    class="bg-gray-800 text-white rounded-lg overflow-hidden cursor-pointer transform transition duration-300 hover:scale-105"
   >
     <div v-if="movie.isLoading" class="w-full h-80 bg-gray-700 animate-pulse"></div>
 

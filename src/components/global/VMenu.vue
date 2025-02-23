@@ -1,18 +1,18 @@
 <script lang="ts" setup>
-  interface MenuItem {
-    label: string,
-    command?: void,
-  }
+interface MenuItem {
+  label: string
+  command?: (() => void)
+}
 
-  defineProps<{
-    items: MenuItem[]
-  }>();
+defineProps<{
+  items: MenuItem[]
+}>()
 
-  const onClick = (command: void | null | undefined): void => {
-    if (!command) return;
+const onClick = (command: (() => void) | null | undefined): void => {
+  if (!command) return
 
-    command();
-  };
+  command()
+}
 </script>
 
 <template>

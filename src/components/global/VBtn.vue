@@ -1,18 +1,18 @@
 <!--This component can be extended to accept props for changing behaviour and color scheme-->
 <script lang="ts" setup>
-  import { computed } from 'vue';
+import { computed } from 'vue'
 
-  const props = defineProps<{
-    to?: string
-  }>();
+const props = defineProps<{
+  to?: string
+}>()
 
-  const el = computed(() => {
-    if (props.to) {
-      return 'router-link';
-    }
+const el = computed(() => {
+  if (props.to) {
+    return 'router-link'
+  }
 
-    return 'button'
-  });
+  return 'button'
+})
 </script>
 
 <template>

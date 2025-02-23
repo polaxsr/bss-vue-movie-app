@@ -1,35 +1,34 @@
 <script setup lang="ts">
-  import { useTitle, useIntersectionObserver } from '@vueuse/core';
-  import { useMovieStore } from '@/stores/useMovieStore';
-  import { onMounted, ref } from 'vue';
-  import { useI18n } from 'vue-i18n';
-  import { storeToRefs } from 'pinia';
-  import MovieCard from '@/components/MovieCard.vue';
+import { useTitle, useIntersectionObserver } from '@vueuse/core'
+import { useMovieStore } from '@/stores/useMovieStore'
+import { onMounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { storeToRefs } from 'pinia'
+import MovieCard from '@/components/MovieCard.vue'
 
-  const movieStore = useMovieStore();
-  const pageTitle = useTitle();
-  const { t } = useI18n();
+const movieStore = useMovieStore()
+const pageTitle = useTitle()
+const { t } = useI18n()
 
-  const bottomElement = ref<HTMLElement | null>(null);
+const bottomElement = ref<HTMLElement | null>(null)
 
-  const { isSearching, search } = storeToRefs(movieStore);
+const { isSearching } = storeToRefs(movieStore)
 
-  onMounted(() => {
-    pageTitle.value = t('HOME.PAGE_TITLE');
+onMounted(() => {
+  pageTitle.value = t('HOME.PAGE_TITLE')
 
-    if (isSearching.value) {
-      movieStore.fetchMoviesBySearch();
-      return;
-    }
+  if (isSearching.value) {
+    movieStore.fetchMoviesBySearch()
+    return
+  }
 
-    movieStore.fetchPopularMovies();
-  });
+  movieStore.fetchPopularMovies()
+})
 
-  useIntersectionObserver(bottomElement, ([{ isIntersecting }]) => {
-    if (isIntersecting) movieStore.fetchPopularMovies();
-  });
+useIntersectionObserver(bottomElement, ([{ isIntersecting }]) => {
+  if (isIntersecting) movieStore.fetchPopularMovies()
+})
 </script>
-
 
 <template>
   <div class="container mx-auto p-4">
@@ -49,11 +48,7 @@
     </div>
 
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-      <MovieCard
-        v-for="movie in movieStore.movies"
-        :key="movie.id"
-        :movie="movie"
-      />
+      <MovieCard v-for="movie in movieStore.movies" :key="movie.id" :movie="movie" />
     </div>
 
     <div ref="bottomElement" class="h-10" />

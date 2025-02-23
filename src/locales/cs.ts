@@ -1,16 +1,16 @@
 export default {
   APP: {
-    TITLE_POPULAR_MOVIES: 'Populární filmy'
+    TITLE_POPULAR_MOVIES: 'Populární filmy',
   },
 
   LANGUAGE_MENU: {
-    BTN_LANGUAGE: 'Jazyk'
+    BTN_LANGUAGE: 'Jazyk',
   },
 
   HOME: {
     PAGE_TITLE: 'The Movies Data Base',
     TITLE_POPULAR_MOVIES: 'Populární filmy',
-    PLACEHOLDER_SEARCH: 'Hledat film'
+    PLACEHOLDER_SEARCH: 'Hledat film',
   },
 
   DETAILS: {
@@ -18,4 +18,4 @@ export default {
     TEXT_RATING: 'Hodnocení',
     TEXT_RELEASE_DATE: 'Datum vydání',
   },
-};
+}

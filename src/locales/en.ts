@@ -1,10 +1,10 @@
 export default {
   APP: {
-    TITLE_POPULAR_MOVIES: 'Popular Movies'
+    TITLE_POPULAR_MOVIES: 'Popular Movies',
   },
 
   LANGUAGE_MENU: {
-    BTN_LANGUAGE: 'Language'
+    BTN_LANGUAGE: 'Language',
   },
 
   HOME: {
@@ -18,4 +18,4 @@ export default {
     TEXT_RATING: 'Rating',
     TEXT_RELEASE_DATE: 'Release date',
   },
-};
+}
