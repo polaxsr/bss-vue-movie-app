@@ -1,6 +1,6 @@
 # movie-app
 
-## [LIVE DEMO](https://bss-vue-movie-app.vercel.app/cs)
+## [LIVE DEMO](https://bss-vue-movie-app.vercel.app)
 
 ## Project Setup
 
